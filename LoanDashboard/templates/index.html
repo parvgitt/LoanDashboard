@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Eligibility Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Loan Eligibility Dashboard</h1>
+    <div>
+        <canvas id="eligibilityChart" width="400" height="200"></canvas>
+    </div>
+    <script>
+        fetch('/results')
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.map(row => `ID ${row.ID}`);
+                const predictions = data.map(row => row.Prediction);
+
+                const ctx = document.getElementById('eligibilityChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Loan Eligibility',
+                            data: predictions,
+                            backgroundColor: predictions.map(val => val ? 'green' : 'red'),
+                        }]
+                    }
+                });
+            });
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Project Dashboard</h1>
+        </header>
+        <section class="summary-cards">
+            <div class="card">5 done in the last 7 days 🎉</div>
+            <div class="card">51 updated in the last 7 days</div>
+            <div class="card">13 created in the last 7 days</div>
+            <div class="card">0 due in the next 7 days</div>
+        </section>
+        <section class="main-content">
+            <div class="status-overview">
+                <canvas id="statusChart"></canvas>
+            </div>
+            <div class="priority-breakdown">
+                <canvas id="priorityChart"></canvas>
+            </div>
+            <div class="team-workload">
+                <canvas id="workloadChart"></canvas>
+            </div>
+        </section>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Eligibility Predictor</title>
+</head>
+<body>
+    <h1>Loan Eligibility Predictor</h1>
+    <form id="predictForm">
+        <label>Age: </label><input type="text" id="age" name="Age"><br>
+        <label>Loan Amount Requested: </label><input type="text" id="loan_amount" name="Loan Amount Requested"><br>
+        <label>Loan Repayment History (1 or 0): </label><input type="text" id="repayment" name="Loan Repayment History"><br>
+        <label>Monthly Income: </label><input type="text" id="income" name="Monthly Income"><br>
+        <label>Monthly Expenditure: </label><input type="text" id="expenditure" name="Monthly Expenditure"><br>
+        <label>Other Loans: </label><input type="text" id="loans" name="Other Loans"><br>
+        <button type="button" onclick="predict()">Submit</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        async function predict() {
+            const data = {
+                "Age": document.getElementById("age").value,
+                "Loan Amount Requested": document.getElementById("loan_amount").value,
+                "Loan Repayment History": document.getElementById("repayment").value,
+                "Monthly Income": document.getElementById("income").value,
+                "Monthly Expenditure": document.getElementById("expenditure").value,
+                "Other Loans": document.getElementById("loans").value
+            };
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            document.getElementById("result").innerText = result["Loan Eligibility"];
+        }
+    </script>
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Eligibility Predictor</title>
+</head>
+<body>
+    <h1>Search Customer</h1>
+    <form action="/dashboard">
+        <button type="submit">Go to Dashboard</button>
+    </form>
+</body>
+</html>
+

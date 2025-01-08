@@ -1,0 +1,33 @@
+/* assets/styles.css */
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* Navbar Styling */
+.navbar-dark .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Search Section */
+.search-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#customer-id-input {
+    width: 40%;
+    margin: 0 auto;
+}
+
+/* Graph Styling */
+.graph-container {
+    margin: 20px 0;
+}
+
+h1, h3 {
+    color: #333;
+}
